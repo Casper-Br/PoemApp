@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center; /* optional */
+    font-family: 'Dancing Script', cursive;
+  }
+
+  #poem {
+    padding-top: 25px;
+  }
