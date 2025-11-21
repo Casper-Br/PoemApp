@@ -1,0 +1,78 @@
+* {
+  cursor: url('assets/miffyCursor.cur'), auto;
+}
+
+select {
+  font-family: 'Dancing Script', cursive;
+  background: #f7f1d3;
+  color: #3a2f0b;
+  border: 2px solid #d5c59f;
+  border-radius: 12px;
+  text-align: center;
+}
+
+button {
+  font-family: 'Dancing Script', cursive;
+  background: #f7f1d3;
+  color: #3a2f0b;
+  border: 2px solid #d5c59f;
+  border-radius: 12px;
+
+}
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+#poemContainer {
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+    
+  /* Old paper color */
+  background: #f7f1d3;
+
+  /* Torn / rough edges */
+  border: 2px solid #d5c59f;
+  border-radius: 12px;
+
+  /* Floating paper effect */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+
+  /* Text formatting */
+  color: #3a2f0b;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+#poem {
+  white-space: pre-wrap; /* preserve line breaks */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#moonCrest {
+  max-width: 32px;
+  opacity: 0;
+}
+
+#moonCrest:hover {
+  opacity: 1;
+}
+
+#topControls {
+  display: flex;
+  justify-content: center;
+  flex: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+#playRecordingBtn {
+  margin-bottom: 25px;
+}
