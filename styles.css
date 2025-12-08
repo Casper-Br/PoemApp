@@ -1,5 +1,5 @@
 * {
-  cursor: url('assets/miffyCursor.cur'), auto;
+  cursor: url('./assets/miffyCursor.cur'), auto;
 }
 
 select {
@@ -17,8 +17,8 @@ button {
   color: #3a2f0b;
   border: 2px solid #d5c59f;
   border-radius: 12px;
-
 }
+
 body {
   background-color: black;
   color: white;
@@ -68,11 +68,16 @@ body::-webkit-scrollbar {
 #topControls {
   display: flex;
   justify-content: center;
-  flex: wrap;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 25px;
 }
 
 #playRecordingBtn {
   margin-bottom: 25px;
+  display: none;
+}
+
+#poemContainer {
+  display: none;
 }
