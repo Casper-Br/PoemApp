@@ -226,6 +226,7 @@ deletePoemBtn.addEventListener("click", () => {
   poemContainer.style.display = "none";
   playRecordingBtn.style.display = "none";
   deletePoemBtn.style.display = "none";
+  addAudioBtn.style.display = "none";
 
   loadPoemSelector();
 });
