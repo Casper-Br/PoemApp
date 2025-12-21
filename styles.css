@@ -46,6 +46,8 @@ body {
   color: #3a2f0b;
   font-size: 22px;
   line-height: 1.6;
+
+  display: none;
 }
 
 #poem {
@@ -78,6 +80,26 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-#poemContainer {
-  display: none;
+#pastePoemModal {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  color:white;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+#pastePoemModal .modalContent {
+  background: #f7f1d3;
+  color: #3a2f0b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
 }

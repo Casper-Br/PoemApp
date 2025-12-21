@@ -1,6 +1,4 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
-const fs = require("fs");
-const path = require("path");
 
 function createWindow() {
   const win = new BrowserWindow ({
