@@ -19,7 +19,6 @@ const deletePoemBtn = document.getElementById("deletePoemBtn");
 const addAudioBtn = document.getElementById("addAudioBtn");
 
 const fs = require('fs');
-const path = require('path');
 const { ipcRenderer } = require('electron');
 
 let typingTimeout = null; // Stores current setTimeout for typewriter
