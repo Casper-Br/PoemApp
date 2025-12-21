@@ -8,15 +8,24 @@
 </head>
 
 <body>
+
+  <div id="pastePoemModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); color:white; justify-content:center; align-items:center; z-index:1000;">
+    <div style="background:#f7f1d3; color:#3a2f0b; padding:20px; border-radius:12px; width:80%; max-width:500px; text-align:center;">
+      <h3>Paste your poem</h3>
+      <textarea id="poemTextInput" rows="10" style="width:100%;"></textarea><br><br>
+      <input id="poemTitleInput" type="text" placeholder="Enter a title"><br><br>
+      <button id="savePoemBtn">Save Poem</button>
+      <button id="cancelPoemBtn">Cancel</button>
+    </div>
+  </div>
   <div id="topControls">
   <input id ="moonCrest" type="image" src="assets/crescent-moon-svgrepo-com.svg" alt="Moon Crest">
+
+  <button id="pastePoemBtn">New Poem</button>
 
   <select id="poemSelector">
     <option value="noPoem">Select a Poem</option>
     <option value="secretPoem" hidden>Secret Poem</option>
-    <option value="poem1">Poem 1</option>
-    <option value="poem2">Poem 2</option>
-    <option value="poem3">Poem 3</option>
   </select>
 
   <button id="toggleMusicBtn">&#9208; Music</button>
@@ -26,7 +35,11 @@
     <div id="poem"></div>
   </div>
 
+  <button id="addAudioBtn" style="display:none;">Add Recording</button>
+
   <button id="playRecordingBtn">Play Recording</button>
+
+  <button id="deletePoemBtn" style="display:none;">Delete Poem</button>
 
   <audio id="poemAudio"></audio>
 
