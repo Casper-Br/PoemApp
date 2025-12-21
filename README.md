@@ -1,3 +1,5 @@
+# THIS README IS CURRENTLY OUTDATED I WILL MAKE AN UPDATED VERSION SOON
+
 **PoemWriter** is a macOS desktop app built with Electron that displays poems with a typewriter effect while playing background music.
 
 ## Necessary files
