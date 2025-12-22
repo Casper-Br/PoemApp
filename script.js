@@ -1,3 +1,18 @@
+const titles = [
+  "Here's my hand I'll never leave you.",
+  "And I found peace in the words you speak.",
+  "She looks just like a dream... prettiest girl I've ever seen...",
+  "When I try to run, can you hold me?",
+  "I'm running on the feeling, that I get when you and me dance.",
+  "Shut out the light and stay with me tonight.",
+  "Just come and grab my face and never let it go.",
+  "Girl, you're simply wonderful. You bleed, I'll bleed.",
+  "Bite me on the neck and then you whisper something real"
+];
+
+const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+document.title = randomTitle;
+
 const moonCrest = document.getElementById('moonCrest');
 const poemDiv = document.getElementById('poem');
 const poemContainer = document.getElementById('poemContainer');
