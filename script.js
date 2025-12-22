@@ -17,6 +17,7 @@ const savePoemBtn = document.getElementById("savePoemBtn");
 const cancelPoemBtn = document.getElementById("cancelPoemBtn");
 const deletePoemBtn = document.getElementById("deletePoemBtn");
 const addAudioBtn = document.getElementById("addAudioBtn");
+const changeSavePathBtn = document.getElementById("changeSavePathBtn");
 
 const fs = require('fs');
 const { ipcRenderer } = require('electron');
@@ -84,6 +85,27 @@ savePoemBtn.addEventListener("click", async () => {
   loadPoemSelector();
   pasteModal.style.display = "none";
   alert(`Poem "${poemTitle}" saved succesfully.`);
+});
+
+changeSavePathBtn.addEventListener("click", async () => {
+  const newPath = await ipcRenderer.invoke("select-json-path");
+
+  if (!newPath) return;
+
+  try {
+    fs.writeFileSync(
+      newPath,
+      JSON.stringify({ poems, poemRecordings },null, 2)
+    );
+
+    userJsonPath = newPath;
+    localStorage.setItem("userPoemsPath", newPath);
+
+    alert("Save location updated succesfully.");
+  } catch (err) {
+    console.error("Failed to change save path", err);
+    alert("Failed to update save location.");
+  }
 });
 
 toggleMusicBtn.addEventListener('click', () => {
