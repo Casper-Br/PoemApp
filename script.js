@@ -7,7 +7,9 @@ const titles = [
   "Shut out the light and stay with me tonight.",
   "Just come and grab my face and never let it go.",
   "Girl, you're simply wonderful. You bleed, I'll bleed.",
-  "Bite me on the neck and then you whisper something real"
+  "Bite me on the neck and then you whisper something real.",
+  "Kiss me you animal and don't ever let me go."
+
 ];
 
 const randomTitle = titles[Math.floor(Math.random() * titles.length)];
@@ -144,16 +146,11 @@ poemSelector.addEventListener('change', () => {
   const poemText = poems[selectedPoem];
 
   if (!poemText || selectedPoem === "noPoem") {
+    poemContainer.style.display = "none";
     playRecordingBtn.style.display = "none";
     deletePoemBtn.style.display = "none";
-    poemContainer.style.display = "none";
+    addAudioBtn.style.display = "none";
     return;
-  }
-  
-  if (selectedPoem === "secretPoem") {
-    deletePoemBtn.style.display = "none";
-  } else {
-    deletePoemBtn.style.display = "inline-block";
   }
   
   poemDiv.textContent = "";
@@ -170,17 +167,16 @@ poemSelector.addEventListener('change', () => {
   poemAudio.src = audioSrc || "";
   bgMusic.volume = NORMAL_MUSIC_VOLUME;
 
-  if (!selectedPoem || selectedPoem === "noPoem" || selectedPoem === "secretPoem") {
-    playRecordingBtn.style.display = "none";
+  if (selectedPoem === "secretPoem") {
+    deletePoemBtn.style.display = "none";
     addAudioBtn.style.display = "none";
-  } else if (audioSrc) {
-    playRecordingBtn.style.display = 'inline-block';
-    addAudioBtn.style.display = "none";
+    playRecordingBtn.style.display = "inline-block";
   } else {
-    playRecordingBtn.style.display = 'none';
-    addAudioBtn.style.display = "inline-block";
+    deletePoemBtn.style.display = "inline-block";
+    addAudioBtn.style.display = audioSrc ? "none" : "inline-block";
+    playRecordingBtn.style.display = audioSrc ? "inline-block" : "none";
   }
-
+  
   typeWriter(poemText, poemDiv, 0);
 });
 
