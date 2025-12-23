@@ -9,7 +9,6 @@ const titles = [
   "Girl, you're simply wonderful. You bleed, I'll bleed.",
   "Bite me on the neck and then you whisper something real.",
   "Kiss me you animal and don't ever let me go."
-
 ];
 
 const randomTitle = titles[Math.floor(Math.random() * titles.length)];
@@ -21,7 +20,7 @@ const poemContainer = document.getElementById('poemContainer');
 const poemSelector = document.getElementById('poemSelector');
 const bgMusic = document.getElementById('bgMusic');
 const toggleMusicBtn = document.getElementById('toggleMusicBtn');
-const TYPING_SPEED = 100;
+const TYPING_SPEED = 75;
 const playRecordingBtn = document.getElementById('playRecordingBtn');
 const poemAudio = document.getElementById('poemAudio');
 const NORMAL_MUSIC_VOLUME = 1.0;
@@ -40,6 +39,8 @@ const fs = require('fs');
 const { ipcRenderer } = require('electron');
 
 let typingTimeout = null; // Stores current setTimeout for typewriter
+let isTyping = false;
+let currentPoemText = "";
 
 let poems = window.poems || {};
 let poemRecordings = window.poemRecordings || {};
@@ -177,6 +178,7 @@ poemSelector.addEventListener('change', () => {
     playRecordingBtn.style.display = audioSrc ? "inline-block" : "none";
   }
   
+  currentPoemText = poemText;
   typeWriter(poemText, poemDiv, 0);
 });
 
@@ -265,6 +267,10 @@ deletePoemBtn.addEventListener("click", () => {
 
 // Typewriter
 function typeWriter(text, element, i) {
+  if (i === 0) {
+    isTyping = true;
+  }
+
   if (i < text.length) {
     const char = text[i];
     if (char === '\n') {
@@ -274,9 +280,26 @@ function typeWriter(text, element, i) {
     }
     typingTimeout = setTimeout(() => typeWriter(text, element, i + 1), TYPING_SPEED);
   } else {
-    typingTimeout = null; // Finished typing
+    typingTimeout = null;
+    isTyping = false; // Finished typing
   }
 }
+
+document.addEventListener ("keydown", (e) => {
+  if (!isTyping) return;
+
+  if (e.key === "f") {
+    e.preventDefault();
+
+    if (typingTimeout) {
+      clearTimeout(typingTimeout);
+      typingTimeout = null;
+    }
+
+    poemDiv.textContent = currentPoemText;
+    isTyping = false;
+  }
+});
 
 function loadPoemSelector () {
   // Keep default options
