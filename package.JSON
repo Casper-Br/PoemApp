@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "package-mac": "electron-packager . PoemApp --platform=darwin --arch=universal --overwrite --out=poemwriterApp --icon=assets/appIcon.icns",
+        "package-win32": "electron-packager . PoemApp --platform=win32 --arch=ia32 --overwrite --out=poemwriterApp --icon=assets/appIcon.ico",
+        "package-win64": "electron-packager . PoemApp --platform=win32 --arch=x64 --overwrite --out=poemwriterApp --icon=assets/appIcon.ico"
     },
     "devDependencies": {
         "electron": "^26.0.0",

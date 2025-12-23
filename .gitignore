@@ -3,3 +3,4 @@ node_modules/
 *.log
 assets/bgAudio.mp3
 assets/moonIcon.png
+poemwriterApp/
