@@ -9,7 +9,7 @@
         "package-win64": "electron-packager . PoemApp --platform=win32 --arch=x64 --overwrite --out=poemwriterApp --icon=assets/appIcon.ico"
     },
     "devDependencies": {
-        "electron": "^26.0.0",
+        "electron": "^39.2.6",
         "electron-packager": "^17.1.2"
     }
 }
